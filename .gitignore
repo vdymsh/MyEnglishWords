@@ -1,0 +1,13 @@
+# This project ignores
+CanbanBoard.xlsx
+data/
+Test*.*
+*.db
+
+#PyCharm stuff
+.idea/
+
+# mypy
+.mypy_cache/
+__pycache__/
+

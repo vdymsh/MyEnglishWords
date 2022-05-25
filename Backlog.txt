@@ -1,0 +1,7 @@
+Revise MVP_Spec
+Design and develop common database structure
+Do procedures of DB initialisation from python
+Design OOP structure of the app -- requirements to all procedures / methods
+Do configuration procedure as separate app
+
+Do the procedures of Main Loop (session) accordingly the progect

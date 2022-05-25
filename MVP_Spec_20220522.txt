@@ -1,0 +1,89 @@
+Application name: WordCatcher.py (This Application, App, __ThisApp__)
+
+Story 1.
+=======
+
+Prerequisites
+-------------
+There are a list (initially empty) with all previously known words.
+Known Words (__KWRD__)
+contains translations, examples....
+Initial file converted into json file or SQLite database table
+
+There are a list (initially empty) with all previously unknown words to learn
+Unknown Words (__UWRD__)
+contains translations, examples....
+Initial file converted into json file or SQLite database table
+
+There are Dictionary of similar (may be same) structure (__DICT__)
+contains translations, examples....
+Initial file converted into json file or SQLite database table
+
+There are ordered (or partially ordered) frequency list of english words (__FREQ__)
+Initial file converted into json file or SQLite database table
+
+There are table with forms of irregular verbs
+Initial file converted into json file or SQLite database table
+
+-- low priority yet
+There are list of phrasal verbs and idiomatic phrases
+contains translations, examples....
+Initial file converted into json file or SQLite database table
+
+
+The main process of working with the App
+----------------------------------------
+- App has a configuration procedure with check as separate app
+- Configutation saved in json file
+- user run the App
+- user prompted 
+	- working file (last working file as default)
+	- starting line (last treated line saved in cfg is suggested, can
+	be changed to start, or any choosen by user).
+
+--- here the next session of the job started
+	- user see the new potentially unknown word, translation (if possible
+		to get it from local file or online translator), the sentense,
+		where the word is highlited and the word wrequency order
+	- user has the next options
+	- ignore (simply skip the entry)
+	- mark the word as known - so user prompted to add translation and
+		optionally, example to the known words entry
+	- mark the word as unknown - so word translation and example add to unknown words database,
+		user prompted to add translations and examples
+	- stop the job and confirm or not  all the changes. 
+--- here the next session of the job finished
+
+	- All changes should be accumulated in inner structures and written to DB at the end of next session.
+
+
+Additional requirements
+-----------------------
+- App shoul be designed as object - oriented
+- Work with DB should be isolated into localized procedures so that extremely
+simplify migration to other DBMS
+- __KWRD__ should contain editable field of the number of entries this word in 
+analysed texts
+- cfg file and db file stored in the same directory as app, 
+	all service data stored in subdirectory .\data
+- remember about Re
+- Unit testing???
+
+==============
+End of Story 1.
+
+
+1) Считывается текст и превращается в частотный словарь входящих в него слов.
+2) Сопоставляется с Базой данных известных слов.
+3) Слова, отсутствующие в базе, но появившиеся в тексте более N (N >= 0) раз, перемещаются в Базу
+4) Слова в базе маркируются как известные и неизвестные. 
+   Неизвестные являются текушим списком слов для изучения.
+   
+Главное - структура Базы, как основа для обучения.
+Требования к базе.
+1) Слова на английском могут иметь несколько переводов.
+2) Слова на русском может иметь несколко переводов.
+3) Каждая пара английское - русское имеет как минимум один контекстный пример.
+
+Step One - делаем "считыватель" A-La Downey и начинаем работать с ним.
+(он уже сделан!!!!)

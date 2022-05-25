@@ -1,0 +1,2 @@
+This is yandex translate key for api access.
+trnsl.1.1.20200218T073727Z.d6b80c77761af4f2.2c8367f00446617f28c66ac134d6761db3797750
