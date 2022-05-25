@@ -1,39 +1,24 @@
-create table word_keys
+drop table if exists word_frequent_list;
+create table if not exists word_frequent_list
 (
-	word varchar(50) not null unique primary key,
-	main_word varchar(50),
-	form_to_main int
-)
+	word_position integer primary key,
+	word varchar(50) not null
+);
 
-create table word_forms
+drop table if exists word_meanings;
+create table  if not exists word_meanings
 (
-	form_id integer primary key autoincrement,
-	form_description varchar(255)
-)
+	word_meaning_id integer primary key autoincrement,
+	word_position integer,
+	meaning varchar(50)
+);
 
-create table word_meanings
+drop table if exists word_examples;
+create table if not exists word_examples
 (
-	meaning_id integer primary key autoincrement,
-	word varchar(50) not null,
-	meaning varchar(255), 
-	form_id int
-)
-
-create table word_examples
-(
-	meaning_id int,
-	example varchar(50)
-)
-
-create table dictionary_keys
-(
-	word varchar(50) not null unique primary key
-)
-
-create table dictionary_meanings
-(
-	word varchar(50) not null,
-	meaning varchar(255) 
-)
+	word_example_id integer primary key autoincrement,
+	word_meaning_id int,
+	example varchar(254)
+);
 
 
