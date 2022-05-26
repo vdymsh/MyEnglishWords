@@ -24,7 +24,8 @@ with open(r"data\20k.txt", 'r', encoding="utf-8") as f:
     word_position = 1
     for line in f:
         item = line.strip()
-        cur.execute(r"insert into word_frequent_list (word_position, word) values(?, ?)", (word_position, item))
+        cur.execute(r"insert into word_frequent_list (word_position, word,  word_type) values(?, ?, ?)",
+                    (word_position, item, 0))
         frequent.append(item)
         word_position += 1
 con.commit()

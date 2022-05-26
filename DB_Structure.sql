@@ -2,8 +2,11 @@ drop table if exists word_frequent_list;
 create table if not exists word_frequent_list
 (
 	word_position integer primary key,
-	word varchar(50) not null
+	word varchar(50) not null,
+	word_type integer
 );
+
+create index words on word_frequent_list(word);
 
 drop table if exists word_meanings;
 create table  if not exists word_meanings
